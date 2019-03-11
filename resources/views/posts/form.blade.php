@@ -12,8 +12,8 @@
 
     <div class="form-group">
         <label>Description</label>
-        <textarea name="description" class="form-control" rows="10"
-                  placeholder="Description ...">@if(isset($post)){{$post->description}}@else{{ old('description') }}@endif</textarea>
+        <textarea name="description" class="form-control" rows="10" id="editor"
+                  placeholder="Description ...">@if(isset($post)){!! "$post->description" !!}@else{{ old('description') }}@endif</textarea>
     </div>
 
     {{--<div class="form-group">--}}
@@ -61,3 +61,11 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+@push('scripts')
+    <script src="{{ asset('node_modules/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'editor' );
+    </script>
+@endpush

@@ -16,7 +16,7 @@
                             {{ $post->title }}
                         </h2>
                         <h5 class="post-subtitle">
-                            {{ $post->description }}
+                            {!! "$post->description" !!}
                         </h5>
                         <p class="post-meta">
                             @if(auth()->user()->id == $post->user->id)
